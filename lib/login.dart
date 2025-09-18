@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'package:shrine/colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -39,16 +40,21 @@ class _LoginPageState extends State<LoginPage> {
                   height: 200,
                 ),
                 const SizedBox(height: 16.0),
-                const Text('Script Of The Soul'),
+                Text(
+                  'Script Of The Soul',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                  ),
               ],
             ),
+            
             const SizedBox(height: 120.0),
             // TODO: Remove filled: true values (103)
             // TODO: Add TextField widgets (101)
             // Name
             TextField(
+              controller: _usernameController,
               decoration: const InputDecoration(
-                filled: true,
+                // filled: true,
                 labelText: 'Username',
               ),
             ),
@@ -56,8 +62,9 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 12.0),
             // Password
             TextField(
+              controller: _passwordController,
               decoration: const InputDecoration(
-                filled: true,
+                // filled: true,
                 labelText: 'Password',
               ),
               obscureText: true,
@@ -76,6 +83,12 @@ class _LoginPageState extends State<LoginPage> {
                     _usernameController.clear();
                     _passwordController.clear();
                   },
+                  style: TextButton.styleFrom(
+                    foregroundColor: kSotSPink900,
+                    shape: const BeveledRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(7.0))
+                    ),
+                  ),
                 ),
                 // TODO: Add an elevation to NEXT (103)
                 // TODO: Add a beveled rectangular border to NEXT (103)
@@ -85,6 +98,14 @@ class _LoginPageState extends State<LoginPage> {
                     // TODO: Show the next page (101)
                     Navigator.pop(context);
                   },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: kSotSPink900,
+                    backgroundColor: kSotSBrown100,
+                    elevation: 8.0,
+                    shape: const BeveledRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(7.0))
+                    ),
+                  ),
                 ),
               ],
             )
