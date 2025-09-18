@@ -35,20 +35,16 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 80.0),
             Column(
               children: <Widget>[
-                Image.asset('assets/diamond.png'),
+                Image.asset('assets/logo2.png',
+                  height: 200,
+                ),
                 const SizedBox(height: 16.0),
-                const Text('SHRINE'),
+                const Text('Script Of The Soul'),
               ],
             ),
             const SizedBox(height: 120.0),
             // TODO: Remove filled: true values (103)
             // TODO: Add TextField widgets (101)
-            TextField(
-              controller: _usernameController,
-            ),
-            TextField(
-              controller: _passwordController,
-            ),
             // Name
             TextField(
               decoration: const InputDecoration(
@@ -57,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             // spcer
-            const SizedBox(height: 120.0),
+            const SizedBox(height: 12.0),
             // Password
             TextField(
               decoration: const InputDecoration(
@@ -66,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               obscureText: true,
             ),
+            const SizedBox(height: 15.0),
             // TODO: Add button bar (101)
             OverflowBar(
               alignment: MainAxisAlignment.end,
