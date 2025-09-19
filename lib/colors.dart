@@ -7,7 +7,9 @@ const kSotSBrown400 = Color(0xff55382f);
 
 const kSotSPink900 = Color(0xffD9A9B6);
 
-const kSofSErrorRed = Color(0xff590e22);
+const kSotSErrorRed = Color(0xff590e22);
 
-const kShrineSurfaceWhite = Color(0xFFFFFBFA);
-const kShrineBackgroundWhite = Colors.white;
+const kSotSSurfaceWhite = Color(0xFFFFFBFA);
+const kSotSBackgroundWhite = Colors.white;
+
+const kSotSPurple = Color(0xff6b3a55);

@@ -30,8 +30,8 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NumberFormat formatter = NumberFormat.simpleCurrency(
-        decimalDigits: 0, locale: Localizations.localeOf(context).toString());
+    final NumberFormat formatter = NumberFormat.currency(
+        decimalDigits: 0, locale: 'id_ID', symbol: 'Rp ');
     final ThemeData theme = Theme.of(context);
 
     final imageWidget = Image.asset(
