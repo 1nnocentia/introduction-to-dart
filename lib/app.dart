@@ -15,13 +15,29 @@
 import 'package:flutter/material.dart';
 
 import 'supplemental/cut_corners_border.dart';
+import 'model/product.dart';
 import 'home.dart';
 import 'login.dart';
 import 'colors.dart';
+import 'backdrop.dart';
+import 'category_menu_page.dart';
 
 // TODO: Convert ShrineApp to stateful widget (104)
-class ShrineApp extends StatelessWidget {
+class ShrineApp extends StatefulWidget {
   const ShrineApp({Key? key}) : super(key: key);
+
+  @override
+  _ShrineAppState createState() => _ShrineAppState();
+}
+
+class _ShrineAppState extends State<ShrineApp> {
+  Category _currentCategory = Category.all;
+
+  void _onCategoryTap(Category category) {
+    setState(() {
+      _currentCategory = category;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +47,19 @@ class ShrineApp extends StatelessWidget {
       routes: {
         '/login': (BuildContext context) => const LoginPage(),
         // TODO: Change to a Backdrop with a HomePage frontLayer (104)
-        '/': (BuildContext context) => const HomePage(),
+        '/': (BuildContext context) => Backdrop(
         // TODO: Make currentCategory field take _currentCategory (104)
+        currentCategory: _currentCategory,
         // TODO: Pass _currentCategory for frontLayer (104)
+        frontLayer: HomePage(category: _currentCategory),
         // TODO: Change backLayer field value to CategoryMenuPage (104)
+        backLayer: CategoryMenuPage(
+          currentCategory: _currentCategory,
+          onCategoryTap: _onCategoryTap,
+        ),
+        frontTitle: const Text('SCRIPT OF THE SOUL'),
+        backTitle: const Text('MENU'),
+        ),
       },
       // TODO: Customize the theme (103)
       theme: _kSotSTheme,
@@ -46,7 +71,7 @@ class ShrineApp extends StatelessWidget {
 final ThemeData _kSotSTheme = _buildSotSTheme();
 
 ThemeData _buildSotSTheme() {
-  final ThemeData base = ThemeData.light();
+  final ThemeData base = ThemeData.light(useMaterial3: true);
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
       primary: kSotSBrown100,
@@ -58,6 +83,10 @@ ThemeData _buildSotSTheme() {
     textTheme: _buildSotSTextTheme(base.textTheme),
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: kSotSBrown100,
+    ),
+    appBarTheme:const AppBarTheme(
+      foregroundColor: kSotSPink900,
+      backgroundColor: kSotSBrown100,
     ),
     // TODO: Decorate the inputs (103)
     inputDecorationTheme: const InputDecorationTheme(

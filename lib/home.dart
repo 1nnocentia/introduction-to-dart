@@ -20,13 +20,40 @@ import 'model/products_repository.dart';
 import 'supplemental/asymmetric_view.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final Category category;
+  const HomePage({this.category = Category.all, Key? key}) : super(key: key);
 
+    // TODO: Add a variable for Category (104)
+    @override
+    Widget build(BuildContext context) {
+      // TODO: Return an AsymmetricView (104)
+      return AsymmetricView(products: ProductsRepository.loadProducts(Category.all));
+      // TODO: Pass Category variable to AsymmetricView (104)
+      return Scaffold(
+        // TODO: Add app bar (102)
+        appBar: AppBar(
+          title: const Text('Script Of The Souls'),
+        ),
+        // TODO: Add a grid view (102)
+        // body: GridView.count(
+        //   crossAxisCount: 2,
+        //   padding: const EdgeInsets.all(16.0),
+        //   childAspectRatio: 8.0 / 9.0,
+        //   // TODO: Build a grid of cards (102)
+        //   children: _buildGridCards(context)
+        // ),
+        body: AsymmetricView(
+          products: ProductsRepository.loadProducts(Category.all),
+        ),
+        // TODO: Set resizeToAvoidBottomInset (101)
+        resizeToAvoidBottomInset: false,
+      );
+    }
   // TODO: Make a collection of cards (102)
   List<Card> _buildGridCards(BuildContext context) {
-    List<Product> products = ProductsRepository.loadProducts(Category.all);
-      
-      if (products.isEmpty) {
+    List<Product> products = ProductsRepository.loadProducts(category);
+
+    if (products.isEmpty) {
     return const <Card>[];
   }
 
@@ -93,30 +120,5 @@ class HomePage extends StatelessWidget {
     );
   }).toList();
 }
-
-  // TODO: Add a variable for Category (104)
-  @override
-  Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
-    return Scaffold(
-      // TODO: Add app bar (102)
-      appBar: AppBar(
-        title: const Text('Script Of The Souls'),
-      ),
-      // TODO: Add a grid view (102)
-      // body: GridView.count(
-      //   crossAxisCount: 2,
-      //   padding: const EdgeInsets.all(16.0),
-      //   childAspectRatio: 8.0 / 9.0,
-      //   // TODO: Build a grid of cards (102)
-      //   children: _buildGridCards(context)
-      // ),
-      body: AsymmetricView(
-        products: ProductsRepository.loadProducts(Category.all),
-      ),
-      // TODO: Set resizeToAvoidBottomInset (101)
-      resizeToAvoidBottomInset: false,
-    );
-  }
 }
+
