@@ -321,14 +321,6 @@ class ProductsRepository {
         price: 249000,
         image: 'assets/sots/37.jpg',
       ),
-      Product(
-        category: Category.accessories,
-        id: 38,
-        isFeatured: true,
-        name: 'Fine lines tee',
-        price: 199000,
-        image: 'assets/sots/38.jpg',
-      ),
     ];
     if (category == Category.all) {
       return allProducts;
