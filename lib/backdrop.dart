@@ -19,8 +19,8 @@ class _FrontLayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 16.0,
-      shape: const BeveledRectangleBorder(
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(46.0)),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(5.0)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

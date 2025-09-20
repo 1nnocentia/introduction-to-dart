@@ -14,9 +14,9 @@
 
 enum Category {
   all,
+  stationery,
+  apparel,
   accessories,
-  clothing,
-  home,
 }
 
 class Product {
@@ -26,6 +26,7 @@ class Product {
     required this.isFeatured,
     required this.name,
     required this.price,
+    required this.image,
   });
 
   final Category category;
@@ -33,9 +34,10 @@ class Product {
   final bool isFeatured;
   final String name;
   final int price;
+  final String? image;
 
-  String get assetName => '$id-0.jpg';
-  String get assetPackage => 'shrine_images';
+  String get assetName => image ?? '/assets/sots/$id.jpg';
+  String? get assetPackage => null;
 
   @override
   String toString() => "$name (id=$id)";

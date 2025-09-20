@@ -65,7 +65,7 @@ class _ShrineAppState extends State<ShrineApp> {
 final ThemeData _kSotSTheme = _buildSotSTheme();
 
 ThemeData _buildSotSTheme() {
-  final ThemeData base = ThemeData.light(useMaterial3: true);
+  final ThemeData base = ThemeData.dark(useMaterial3: true);
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
       primary: kSotSBrown100,
@@ -116,7 +116,7 @@ TextTheme _buildSotSTextTheme(TextTheme base) {
         ),
       )
       .apply(
-        fontFamily: 'Sensation',
+        fontFamily: 'Sansation',
         displayColor: kSotSPink900,
         bodyColor: kSotSPink900,
       );

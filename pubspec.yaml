@@ -20,10 +20,10 @@ dev_dependencies:
 flutter:
   # TODO: Insert Fonts (103)
   fonts:
-    - family: Rubik
+    - family: Sansation
       fonts:
-        - asset: fonts/Rubik-Regular.ttf
-        - asset: fonts/Rubik-Medium.ttf
+        - asset: fonts/Sansation-Regular.ttf
+        - asset: fonts/Sansation-Bold.ttf
           weight: 500
   uses-material-design: true
   assets:
@@ -31,7 +31,44 @@ flutter:
     - assets/photo-bg.png
     # TODO: Add slanted menu asset (104)
     - assets/slanted_menu.png
-    - packages/shrine_images/0-0.jpg
+    - assets/sots/0.jpg
+    - assets/sots/1.jpg
+    - assets/sots/2.jpg
+    - assets/sots/3.jpg
+    - assets/sots/4.jpg
+    - assets/sots/5.jpg
+    - assets/sots/6.jpg
+    - assets/sots/7.jpg
+    - assets/sots/8.jpg
+    - assets/sots/9.jpg
+    - assets/sots/10.jpg
+    - assets/sots/11.jpg
+    - assets/sots/12.jpg
+    - assets/sots/13.jpg
+    - assets/sots/14.jpg
+    - assets/sots/15.jpg
+    - assets/sots/16.jpg
+    - assets/sots/17.jpg
+    - assets/sots/18.jpg
+    - assets/sots/19.jpg
+    - assets/sots/20.jpg
+    - assets/sots/21.jpg
+    - assets/sots/22.jpg
+    - assets/sots/23.jpg
+    - assets/sots/24.jpg
+    - assets/sots/25.jpg
+    - assets/sots/26.jpg
+    - assets/sots/27.jpg
+    - assets/sots/28.jpg
+    - assets/sots/29.jpg
+    - assets/sots/30.jpg
+    - assets/sots/31.jpg
+    - assets/sots/32.jpg
+    - assets/sots/33.jpg
+    - assets/sots/34.jpg
+    - assets/sots/35.jpg
+    - assets/sots/36.jpg
+    - assets/sots/37.jpg
     - packages/shrine_images/1-0.jpg
     - packages/shrine_images/2-0.jpg
     - packages/shrine_images/3-0.jpg

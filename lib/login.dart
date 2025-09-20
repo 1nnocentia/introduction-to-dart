@@ -76,8 +76,8 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: kSotSPink900,
-                    shape: const BeveledRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(3.0))
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0))
                     ),
                   ),
                 ),
@@ -90,8 +90,8 @@ class _LoginPageState extends State<LoginPage> {
                     foregroundColor: kSotSPink900,
                     backgroundColor: kSotSBrown100,
                     elevation: 8.0,
-                    shape: const BeveledRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(3.0))
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0))
                     ),
                   ),
                 ),
