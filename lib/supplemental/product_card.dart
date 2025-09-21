@@ -28,6 +28,52 @@ class ProductCard extends StatelessWidget {
 
   static const kTextBoxHeight = 65.0;
 
+  void _showProductDialog(BuildContext context, Product product) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(product.name),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Image.asset(
+                  product.assetName,
+                  package: product.assetPackage,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  product.description ?? 'No description available.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  NumberFormat.currency(
+                    decimalDigits: 0,
+                    locale: 'id_ID',
+                    symbol: 'Rp ',
+                  ).format(product.price),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ],
+            )
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final NumberFormat formatter = NumberFormat.currency(
@@ -40,40 +86,46 @@ class ProductCard extends StatelessWidget {
       fit: BoxFit.cover,
     );
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        AspectRatio(
-          aspectRatio: imageAspectRatio,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12.0),
-            child: imageWidget,
+    return InkWell(
+      onTap: () {
+        // Panggil fungsi dialog saat di-tap
+        _showProductDialog(context, product);
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          AspectRatio(
+            aspectRatio: imageAspectRatio,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12.0),
+              child: imageWidget,
+            ),
           ),
-        ),
-        SizedBox(
-          height: kTextBoxHeight * MediaQuery.of(context).textScaleFactor,
-          width: 121.0,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                product.name,
-                style: theme.textTheme.labelLarge,
-                softWrap: false,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
-              const SizedBox(height: 4.0),
-              Text(
-                formatter.format(product.price),
-                style: theme.textTheme.bodySmall,
-              ),
-            ],
+          SizedBox(
+            height: kTextBoxHeight * MediaQuery.of(context).textScaleFactor,
+            width: 121.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  product.name,
+                  style: theme.textTheme.labelLarge,
+                  softWrap: false,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                const SizedBox(height: 4.0),
+                Text(
+                  formatter.format(product.price),
+                  style: theme.textTheme.bodySmall,
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
