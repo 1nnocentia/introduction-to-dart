@@ -26,7 +26,8 @@ class Product {
     required this.isFeatured,
     required this.name,
     required this.price,
-    required this.image,
+    required this.image, 
+    required this.description,
   });
 
   final Category category;
@@ -35,6 +36,7 @@ class Product {
   final String name;
   final int price;
   final String? image;
+  final String? description;
 
   String get assetName => image ?? '/assets/sots/$id.jpg';
   String? get assetPackage => null;
