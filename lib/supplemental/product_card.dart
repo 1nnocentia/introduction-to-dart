@@ -46,7 +46,10 @@ class ProductCard extends StatelessWidget {
       children: <Widget>[
         AspectRatio(
           aspectRatio: imageAspectRatio,
-          child: imageWidget,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: imageWidget,
+          ),
         ),
         SizedBox(
           height: kTextBoxHeight * MediaQuery.of(context).textScaleFactor,

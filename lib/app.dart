@@ -94,6 +94,12 @@ ThemeData _buildSotSTheme() {
         color: kSotSPink900,
       ),
     ),
+    cardTheme: base.cardTheme.copyWith(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18.0),
+      ),
+      clipBehavior: Clip.antiAlias,
+    ),
   );
 }
 
